@@ -21,11 +21,13 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}))
 app.use(
     cors({
-        origin: APP_ORIGIN,
-        credentials: true,
+        origin: '*',
+        credentials: false,
 
     })
 )
+
+
 
 app.use(cookieParser())
 
