@@ -12,6 +12,9 @@ import authenticate from "./middleware/authenticate";
 import userRoutes from "./routes/user.routes";
 import sessionRoutes from "./routes/sesion.route";
 
+const allowedOrigins = ['https://ashy-moss-0038a481e.4.azurestaticapps.net', 'http://localhost:3000'];
+
+
 const app = express();
 
 app.use(express.json());
