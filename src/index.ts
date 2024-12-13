@@ -12,7 +12,7 @@ import authenticate from "./middleware/authenticate";
 import userRoutes from "./routes/user.routes";
 import sessionRoutes from "./routes/sesion.route";
 
-const allowedOrigins = ['https://ashy-moss-0038a481e.4.azurestaticapps.net', 'http://localhost:3000'];
+const allowedOrigins = ['https://ashy-moss-0038a481e.4.azurestaticapps.net'];
 
 
 const app = express();
@@ -20,7 +20,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))
 app.use(cors({
-    origin: APP_ORIGIN,      // Allow only this frontend to access the backend
+    origin: allowedOrigins,      // Allow only this frontend to access the backend
     credentials: true,       // Allow cookies or credentials to be sent
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],  // Allowed methods
     allowedHeaders: ['Content-Type', 'Authorization']  // Allowed headers
