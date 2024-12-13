@@ -20,19 +20,11 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))
 app.use(cors({
-    origin: (origin, callback) => {
-        // Allow requests without an origin (like from Postman or other API clients)
-        if (!origin || allowedOrigins.includes(origin)) {
-            return callback(null, true);
-        }
-        // Reject requests from unknown origins
-        return callback(new Error('Not allowed by CORS'), false);
-    },
-    credentials: true,  // Allow cookies/credentials to be sent
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed methods
+    origin: '*',      // Allow only this frontend to access the backend
+    credentials: true,       // Allow cookies or credentials to be sent
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],  // Allowed methods
     allowedHeaders: ['Content-Type', 'Authorization']  // Allowed headers
 }));
-  
 // Handle preflight (OPTIONS) requests for all routes
 app.options('*', cors()); 
 
